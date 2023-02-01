@@ -7,11 +7,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={foreacast_icon} className="App-logo" alt="logo" />
-        Previsão do tempo - Mallet/PR
-        <p id="content">
+        <img id="logoImg" src={foreacast_icon} className="App-logo" alt="logo" />
+          Previsão do tempo - Mallet/PR
+        <div id="content">
             <Menu />
-        </p>
+        </div>
       </header>
     </div>
   );

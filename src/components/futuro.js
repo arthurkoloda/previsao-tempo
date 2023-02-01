@@ -1,19 +1,25 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import Menu from './menu.js';
 
 function hoje() {
 
     function menuPrincipal(){
         const rootElement = document.getElementById('content');
-        ReactDOM.render(<Menu />, rootElement); 
+
+        if(ReactDOM.isValidContainer(rootElement)) {
+            rootElement.render(<Menu />);
+        }
+        else {
+            ReactDOM.createRoot(rootElement).render(<Menu />);
+        }
     }
 
     return (
         <div style={{display: 'flex', justifyContent: 'space-around',flexDirection: 'column'}}>
         <div style={{fontSize: '1rem'}}>
-            Previsão do tempo para 15 dias
+            Previsão do tempo para 8 dias
         </div>
-        <button class="btn btn-outline-info" onClick={menuPrincipal}>
+        <button className="btn btn-outline-info" onClick={menuPrincipal}>
             Voltar
         </button>
         </div>

@@ -1,11 +1,16 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import Menu from './menu.js';
+import WheatherAPI from './wheatherAPI.js';
+
+let root = null;
 
 function hoje() {
-
     function menuPrincipal(){
+
         const rootElement = document.getElementById('content');
-        ReactDOM.render(<Menu />, rootElement); 
+        root = ReactDOM.createRoot(rootElement);   
+        
+        root.render(<Menu />); 
     }
 
     return (
@@ -13,7 +18,8 @@ function hoje() {
         <div style={{fontSize: '1rem'}}>
             Previsão do tempo para hoje
         </div>
-        <button class="btn btn-outline-info" onClick={menuPrincipal}>
+        {WheatherAPI()}
+        <button className="btn btn-outline-info" onClick={menuPrincipal}>
             Voltar
         </button>
         </div>
